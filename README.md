@@ -9,7 +9,7 @@ A QuerySet is generated whenever a database query is made using Django's Object-
 
 QuerySet offers a rich set of methods and chaining capabilities that enable developers to easily query and manipulate data. With QuerySet, you can filter records based on specific criteria, perform complex lookups, order the results, paginate them, aggregate values, and much more. These operations are performed using a syntax similar to writing SQL queries but in a more Pythonic and object-oriented manner.
 
-To Use QuerySet in Django Follow Below Steps :
+# To Use QuerySet in Django Follow Below Steps :
 
 Step 1 : Make sure you installed Django in your Python environment
 Install Python from https://www.python.org/downloads/
@@ -82,7 +82,7 @@ In terminal type
 2] 'python manage.py migrate' this will migrate to database
 3] 'python manage.py createsuperuser' this will create super user
 
-You can create objects in following ways :
+# You can create objects in following ways :
 
 1] In local host http://127.0.0.1:8000/admin/ you can add or change the objects
 django-administration-portal-min
@@ -101,59 +101,59 @@ Create a variable to store Model ' a = Blog(name=' ' ,tagline=' ') and to save i
 How to use QuerySet in Django ?
 In the django shell enter below lines of code :
 
-1. Retrieve all objects :
+# 1. Retrieve all objects :
 from myapp.models import Blog
 
-# Retrieve all objects from the database
+Retrieve all objects from the database
 queryset = Blog.objects.all()
 Output:
 <QuerySet [<Blog: My blog>, <Blog: Food>, <Blog: second blog>, <Blog: third blog>, <Blog: fourth blog>]>
 
-2. Filter objects based on specific criteria :
+# 2. Filter objects based on specific criteria :
 
-# Filter objects based on a field value
+Filter objects based on a field value
 queryset = Blog.objects.filter(field=value) #(tagline__startswith="this")
 
-# You can chain multiple filters together
+You can chain multiple filters together
 queryset = Blog.objects.filter(field1=value1, field2=value2)
 Output :
  <QuerySet [<Blog: My blog>, <Blog: Food>, <Blog: second blog>]>
 
-3. Retrieve a single object :
+# 3. Retrieve a single object :
 
-# Get a single object matching the query
+Get a single object matching the query
 object = Blog.objects.get(field=value)
 
-4. Sort the queryset :
+# 4. Sort the queryset :
 
-# Order the queryset based on a field
+Order the queryset based on a field
 queryset = Blog.objects.order_by('field')
 
-# Order by multiple fields
+Order by multiple fields
 queryset = Blog.objects.order_by('field1', 'field2')
 
-5. Limit the number of results :
+# 5. Limit the number of results :
 
-# Retrieve a specific number of objects
+Retrieve a specific number of objects
 queryset = Blog.objects.all()[:5]  # Retrieves the first 5 objects
 
-6. Perform aggregations :
+# 6. Perform aggregations :
 
 from django.db.models import Count, Sum, Avg
 
-# Count the number of objects matching the query
+Count the number of objects matching the query
 count = MyModel.objects.filter(field=value).count()
 
-# Perform sum or average calculations on a field
+Perform sum or average calculations on a field
 total = MyModel.objects.aggregate(Sum('field'))
 average = MyModel.objects.aggregate(Avg('field'))
 
-7. Access related objects :
+# 7. Access related objects :
 
-# Access related objects using the relationship field
+Access related objects using the relationship field
 queryset = MyModel.objects.filter(related_model__field=value)
 
-# Retrieve related objects using reverse relationships
+Retrieve related objects using reverse relationships
 related_queryset = related_model_instance.my_model_set.all()
 
 These are just a few examples of how to use QuerySets in Django. The ORM provides many more methods and options for querying, filtering, and manipulating data. For more information and detailed usage, refer to the Django documentation on QuerySets: 
